@@ -106,34 +106,6 @@
                 </form>
 
                 <?php if(!empty($_SESSION['user'])): ?>
-
-                  <button type="button" class="btn btn-info btn-lg btn-block mt-4 mb-2" data-toggle="modal" data-target="#testModal">カレンダー登録</button>
-
-                  <!-- ボタン・リンククリック後に表示される画面の内容 -->
-                  <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">出発日・帰宅日登録</h4>
-                      </div>
-                      <div class="modal-body">
-                        <form action="backend/calendar.php?plan=<?= $id ?>" method="POST">
-                          <label>出発日</label>
-                          <input class="mb-2" id="departure" type="date" name="from" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" required>
-                          <br>
-                          <br>
-                          <label>帰宅日</label>
-                          <input id='arrival' type="date" name="to" value="<?php echo date('Y-m-d');  ?>" required>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                          <button type="submit" class="btn btn-info" >登録</button>
-                        </form>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-
                   <?php if($_SESSION['user'] == $name_id): ?>
                     <a class="btn btn-info btn-lg btn-block" href="edit.php?id=<?= $id ?>">プランを変更</a>
 
