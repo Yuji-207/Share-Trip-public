@@ -1,5 +1,43 @@
 <?php
 
+  class Cost_Calendars extends DataBase {
+
+
+    function add(string $calendar_id, string $budget, string $hotel, string $food, string $tour, string $others) {
+
+      $calendar_id = $this -> escape($calendar_id);
+      $budget = (int) $this -> escape($budget);
+      $hotel = (int) $this -> escape($hotel);
+      $food = $this -> escape($food);
+      $tour = $this -> escape($tour);
+      $others = $this -> escape($others);
+
+      $stmt = $this->pdo -> prepare('INSERT INTO cost_calendars (calendar_id, total, hotel, food, tour, others) VALUES(:calendar_id, :total, :hotel, :food, :tour, :others)');
+      $stmt -> bindParam(':calendar_id', $calendar_id);
+      $stmt -> bindParam(':total', $budget);
+      $stmt -> bindParam(':hotel', $hotel);
+      $stmt -> bindParam(':food', $food);
+      $stmt -> bindParam(':tour', $tour);
+      $stmt -> bindParam(':others', $others);
+      $stmt -> execute();  // 実行が失敗した場合のエラー処理
+
+      return (int) $this->pdo -> lastInsertId();
+
+    }
+
+    function get(string $id) {
+
+      $id = (int) $this -> escape($id);
+      $stmt = $this->pdo -> prepare('SELECT * FROM cost_calendars WHERE calendar_id = :id');
+      $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
+      $stmt -> execute();
+      // エラー処理
+
+      return $stmt -> fetch();
+
+    }
+  }
+
 
   class Calendars extends DataBase {
 
@@ -67,7 +105,9 @@
       $stmt = $this->pdo -> prepare($sql);
       $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
       $stmt -> execute();
-      
+
     }
   }
+
+
 ?>

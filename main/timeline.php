@@ -9,7 +9,11 @@
   <body class="bg-light">
 
     <?php include __DIR__ . '/assets/header.php' ?>
-    <?php $plans_inst = new Plans() ?>
+    <?php $plans_inst = new Plans();
+          // $good = new Good();
+          // $good_num = $good -> get_by_plan($id);
+          // $good_num = count($good_num);
+          ?>
 
     <main class="container-fluid py-3">
 
@@ -43,7 +47,7 @@
         </div>
       <?php endif ?>
     <?php endif ?>
-    
+
 
       <!-- Cards -->
 
@@ -55,6 +59,7 @@
       ?>
 
       <?php if (!empty($plans)): ?>
+
         <div class="card-columns">
           <?php foreach ($plans as $plan): ?>
             <a class="card border-0 text-reset shadow-sm" href="plan.php?id=<?= $plan['plan_id'] ?>">
@@ -62,7 +67,9 @@
                 <img class="card-img-top" src="backend/image.php?id=<?= $plan['plan_id'] ?>" alt="image">
               <?php endif ?>
               <div class="card-body">
-                <h2 class="card-title text-body"><?= $plan['title'] ?>への旅行</h2>
+                <h2 class="card-title text-body"><?= $plan['title'] ?>への旅行
+                
+                </h2>
                 <p class="card-text text-secondary"><?= $plan['schedule'] ?></p>
               </div>
             </a>
@@ -70,7 +77,9 @@
         </div>
       <?php else: ?>
         <p class="alert alert-warning mt-3">プランがありません。</p>
+
       <?php endif ?>
+
 
 
       </div>

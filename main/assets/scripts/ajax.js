@@ -4,13 +4,12 @@ $(function(){
   $('.btn-ajax').on('click', function() {
 
 
-    var origin = $('#origin').val();  // 出発地
-    var destination = $('#destination').val();  // 帰着地
-    var waypoints = [];  // 経由地
+    const origin = $('#origin').val();  // 出発地
+    const destination = $('#destination').val();  // 帰着地
     
-    $('.waypoint').each(function(index, waypoint){
-      waypoints.push(waypoint.value);
-    })
+    const waypoints = $('.waypoint').map(function(index, waypoint){
+      return waypoint.value;
+    }).get();
 
 
     // Ajaxリクエスト
@@ -23,18 +22,18 @@ $(function(){
         waypoints: waypoints
       },
       dataType: 'json'  // 受け取るデータの型
-    })
+    })  // セミコロンいるよね？
 
 
     // Ajaxリクエストが成功した時発動
     .done(json => {
 
-      var status = json['status'];
+      const status = json['status'];
 
       if (status > 0) {
 
-        var route = json['route'];
-        var copyrights = json['copyrights'];
+        const route = json['route'];
+        const copyrights = json['copyrights'];
 
         route.forEach((place, index) => {
           if (0 < index && index < route.length - 1) {
@@ -46,6 +45,7 @@ $(function(){
 
       } else {
 
+        console.log(json['status']);
         console.log(json['log']);
 
       }
@@ -53,14 +53,8 @@ $(function(){
 
 
     // Ajaxリクエストが失敗した時発動
-    .fail( (data) => {
-      console.log(data);
-    })
-
-
-    // Ajaxリクエストが成功・失敗どちらでも発動
-    .always( (data) => {
-       
+    .fail(json => {
+      console.log(json);
     });
 
 

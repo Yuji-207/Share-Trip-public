@@ -47,6 +47,38 @@
         <label class="custom-file-label" for="customFile">画像を選択</label>
         </div>
         <p class="alert alert-warning mb-5">画像は3MBまでアップロードできます。</p>
+
+        <table class="table">
+<thead>
+<tr>
+<th scope="col"><p class="text-center">総予算</p></th>
+<th scope="col"><p class="text-center">ホテル</p></th>
+<th scope="col"><p class="text-center">飲食</p></th>
+<th scope="col"><p class="text-center">観光</p></th>
+<th scope="col"><p class="text-center">その他</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><p class="text-center"><input class="form-control mb-3" id="total" type="number" name="total" required></input>円</p></th>
+<td><p class="text-center"><input class="form-control mb-3" id="hotel" type="number" name="hotel" required></input>円</p></td>
+<td><p class="text-center"><input class="form-control mb-3" id="food" type="number" name="food" required></input>円</p></td>
+<td><p class="text-center"><input class="form-control mb-3" id="tour" type="number" name="tour" required></input>円</p></td>
+<td><p class="text-center"><input class="form-control mb-3" id="others" type="number" name="others" required></input>円</p></td>
+</tr>
+
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr>
+<th scope="col">プラン販売希望金額</th>
+<th scope="col"><input class="form-control mb-3" id="others" type="number" name="profit" required></input>円</th>
+</tr>
+</thead>
+</table>
+
+
         <input class="btn btn-info btn-lg btn-block" type="submit" value="作成！">
       </form>
 

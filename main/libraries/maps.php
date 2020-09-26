@@ -9,7 +9,7 @@ function get_places(array $places) {
 
     // $place = escape($place);  // databaseクラスをインスタンス化しないと使えない
 
-    $key = 'key';  // 環境変数やアプリケーションのソースツリー外部に保存
+    $key = '******';  // 環境変数やアプリケーションのソースツリー外部に保存
     $url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=$key&input=$place&inputtype=textquery&fields=name,place_id";
 
 
@@ -50,7 +50,7 @@ function routes(string $origin, string $destination, array $waypoints) {
     // $origin = escape($origin);  // databaseクラスをインスタンス化しないと使えない
     // $destination = escape($destination);
     
-    $key = 'key';
+    $key = '******';
     $url = "https://maps.googleapis.com/maps/api/directions/json?key=$key";
 
 

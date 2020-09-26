@@ -10,6 +10,21 @@ $(function() {
     //選択したvalue値をp要素に出力
     $('#arrival').attr('min', depdate);
   });
+
+  $("#abiko").hide() ;
+
+// function myfunc(value) {
+//  var abiko = document.getElementById("abiko");
+//
+// 	if(abiko.style.display=="block"){
+// 		// noneで非表示
+// 		abiko.style.display ="none";
+// 	}else{
+// 		// blockで表示
+// 		abiko.style.display ="block";
+// 	}
+// }
+
 });
 
 

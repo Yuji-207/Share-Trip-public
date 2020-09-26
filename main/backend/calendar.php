@@ -4,6 +4,7 @@
   // インクルード
   include __DIR__ . '/../libraries/main.php';
   $calendars = new Calendars();
+  $Cost_Calendars = new Cost_Calendars();
 
 
   // リダイレクト
@@ -15,10 +16,15 @@
   $plan = $_GET['plan'];
   $from = $_POST['from'];
   $to = $_POST['to'];
-
+  $budget = $_POST['budget'];
+  $hotel = $_POST['hotel'];
+  $food = $_POST['food'];
+  $tour = $_POST['tour'];
+  $others = $_POST['others'];
 
   // データの登録
-  $id = $calendars -> add($user, $plan, $from, $to);
+  $calendar_id = $calendars -> add($user, $plan, $from, $to);
+  $Cost_id = $Cost_Calendars -> add($calendar_id, $budget, $hotel, $food, $tour, $others);
 
 
   // リダイレクト
